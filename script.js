@@ -1,9 +1,15 @@
+// URL do servidor que você quer acessar (o exemplo usa o Google)
+const serverUrl = 'https://www.google.com';
+
+// URL do cors-anywhere proxy
+const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
+
 // Função para verificar se a internet está lenta
 function checkInternetSpeed() {
     const startTime = performance.now(); // Tempo inicial
 
-    // Fazendo uma solicitação HTTP simples a um servidor externo (Google)
-    fetch('https://www.google.com', { method: 'HEAD' })
+    // Fazendo uma solicitação HTTP simples ao servidor via cors-anywhere proxy
+    fetch(corsAnywhereUrl + serverUrl, { method: 'HEAD' })
         .then(response => {
             const endTime = performance.now(); // Tempo final
             const elapsedTime = endTime - startTime; // Tempo total
